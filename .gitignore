@@ -1,0 +1,16 @@
+# Secrets should not be committed
+secrets/
+
+# Data directories
+/home/joao-alm/data/
+
+# Docker volumes data (if any local)
+*.log
+
+# IDE files
+.vscode/
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db

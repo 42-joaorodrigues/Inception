@@ -16,33 +16,29 @@ setup:
 
 # Build images and start containers
 up: setup
-	docker compose -f $(COMPOSE_FILE) up -d --build
+	cd srcs && docker compose up -d --build
 
 # Stop containers
 down:
-	docker compose -f $(COMPOSE_FILE) down
+	cd srcs && docker compose down
+
+# Clean everything (containers, volumes, images)
+clean: down
+	docker system prune -af
+	docker volume prune -f
+	@sudo rm -rf $(DATA_DIR)
 
 # Rebuild without cache
-re: setup
-	docker compose -f $(COMPOSE_FILE) build --no-cache
-	docker compose -f $(COMPOSE_FILE) up -d
+re: clean setup
+	cd srcs && docker compose build --no-cache
+	cd srcs && docker compose up -d
 
 # Show logs (all services)
 logs:
-	docker compose -f $(COMPOSE_FILE) logs -f
+	cd srcs && docker compose logs
 
 # Show status
-ps:
-	docker compose -f $(COMPOSE_FILE) ps
+status:
+	cd srcs && docker compose ps
 
-# Clean: remove containers + volumes + images
-clean:
-	docker compose -f $(COMPOSE_FILE) down -v --rmi all --remove-orphans
-
-# Reset everything (clean + rebuild + remove data)
-fclean: clean
-	docker system prune -af --volumes
-	@sudo rm -rf $(DATA_DIR)
-	@echo "All data removed from $(DATA_DIR)"
-
-.PHONY: all setup up down re logs ps clean fclean
+.PHONY: all setup up down clean re logs status

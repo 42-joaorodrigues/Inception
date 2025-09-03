@@ -1,31 +1,38 @@
-# Use Debian or Alpine (project requires it)
 FROM debian:bullseye
 
-# Install php-fpm and necessary extensions
+# Install PHP-FPM and required extensions
 RUN apt-get update && apt-get install -y \
+    php7.4-fpm \
+    php7.4-mysql \
+    php7.4-curl \
+    php7.4-gd \
+    php7.4-intl \
+    php7.4-mbstring \
+    php7.4-soap \
+    php7.4-xml \
+    php7.4-xmlrpc \
+    php7.4-zip \
     wget \
-    curl \
-    php \
-    php-fpm \
-    php-mysql \
-    mariadb-client \
-    unzip \
+    netcat \
     && rm -rf /var/lib/apt/lists/*
 
-# Create directories for php-fpm
-RUN mkdir -p /run/php
+# Download and install WP-CLI
+RUN wget https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar && \
+    chmod +x wp-cli.phar && \
+    mv wp-cli.phar /usr/local/bin/wp
 
-# Copy php-fpm config (we’ll create this next)
-COPY conf/www.conf /etc/php/7.4/fpm/pool.d/www.conf
+# Copy configuration files and scripts
+COPY conf/www.conf /etc/php/7.4/fpm/pool.d/
+COPY tools/init.sh /usr/local/bin/
 
-# Copy WordPress setup script
-COPY tools/setup_wordpress.sh /usr/local/bin/
-RUN chmod +x /usr/local/bin/setup_wordpress.sh
+# Make script executable
+RUN chmod +x /usr/local/bin/init.sh
 
+# Set working directory
 WORKDIR /var/www/html
 
-# Run the script at container startup
-ENTRYPOINT ["/usr/local/bin/setup_wordpress.sh"]
-
-# Expose php-fpm port
+# Expose PHP-FPM port
 EXPOSE 9000
+
+# Start the initialization script
+ENTRYPOINT ["/usr/local/bin/init.sh"]

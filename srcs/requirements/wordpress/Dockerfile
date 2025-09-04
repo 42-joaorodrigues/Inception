@@ -14,6 +14,8 @@ RUN apt-get update && apt-get install -y \
     php7.4-zip \
     wget \
     netcat \
+    redis \
+	php-redis \
     && rm -rf /var/lib/apt/lists/*
 
 # Download and install WP-CLI
@@ -24,6 +26,7 @@ RUN wget https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.ph
 # Copy configuration files and scripts
 COPY conf/www.conf /etc/php/7.4/fpm/pool.d/
 COPY tools/init.sh /usr/local/bin/
+COPY tools/test-redis.php /usr/local/bin/
 
 # Make script executable
 RUN chmod +x /usr/local/bin/init.sh

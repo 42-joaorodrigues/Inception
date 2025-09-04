@@ -1,4 +1,6 @@
 services:
+
+  # Mandatory
   mariadb:
     build: ./requirements/mariadb
     container_name: mariadb
@@ -15,6 +17,7 @@ services:
     container_name: wordpress
     depends_on:
       - mariadb
+      - redis
     env_file:
       - .env
     volumes:
@@ -34,6 +37,19 @@ services:
       - .env
     volumes:
       - wordpress_data:/var/www/html
+    networks:
+      - inception
+    restart: always
+  # ---
+
+  # Bonus
+  redis:
+    build: ./requirements/bonus/redis
+    container_name: redis
+    ports:
+      - "6379:6379"
+    env_file:
+      - .env
     networks:
       - inception
     restart: always

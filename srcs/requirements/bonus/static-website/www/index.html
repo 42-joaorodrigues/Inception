@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>João Rodrigues - Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <span class="logo-text">JR</span>
+            </div>
+            <div class="nav-menu">
+                <a href="#home" class="nav-link">Home</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#projects" class="nav-link">Projects</a>
+                <a href="#skills" class="nav-link">Skills</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </div>
+            <div class="nav-toggle">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    Hi, I'm <span class="highlight">João Rodrigues</span>
+                </h1>
+                <p class="hero-subtitle">Full Stack Developer & 42 Student</p>
+                <p class="hero-description">
+                    Passionate about creating innovative solutions and learning cutting-edge technologies.
+                    Currently working on the Inception project with Docker containerization.
+                </p>
+                <div class="hero-buttons">
+                    <a href="#projects" class="btn btn-primary">View Projects</a>
+                    <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="image-placeholder">
+                    <i class="fas fa-code"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>
+                        I'm a dedicated software developer currently studying at 42 School, 
+                        where I'm developing strong problem-solving skills and learning various 
+                        programming languages and technologies.
+                    </p>
+                    <p>
+                        My journey in programming has led me to work with containerization 
+                        technologies like Docker, web development with modern frameworks, 
+                        and system administration. I enjoy tackling complex challenges and 
+                        building scalable solutions.
+                    </p>
+                    <div class="about-stats">
+                        <div class="stat">
+                            <h3>15+</h3>
+                            <p>Projects Completed</p>
+                        </div>
+                        <div class="stat">
+                            <h3>2+</h3>
+                            <p>Years of Experience</p>
+                        </div>
+                        <div class="stat">
+                            <h3>42</h3>
+                            <p>School Student</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills">
+        <div class="container">
+            <h2 class="section-title">Technical Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>Frontend</h3>
+                    <div class="skill-items">
+                        <span class="skill-item">HTML5</span>
+                        <span class="skill-item">CSS3</span>
+                        <span class="skill-item">JavaScript</span>
+                        <span class="skill-item">React</span>
+                        <span class="skill-item">Vue.js</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Backend</h3>
+                    <div class="skill-items">
+                        <span class="skill-item">Node.js</span>
+                        <span class="skill-item">Python</span>
+                        <span class="skill-item">C/C++</span>
+                        <span class="skill-item">PostgreSQL</span>
+                        <span class="skill-item">MongoDB</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>DevOps</h3>
+                    <div class="skill-items">
+                        <span class="skill-item">Docker</span>
+                        <span class="skill-item">Linux</span>
+                        <span class="skill-item">Nginx</span>
+                        <span class="skill-item">Git</span>
+                        <span class="skill-item">CI/CD</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <h2 class="section-title">Featured Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-icon">
+                        <i class="fab fa-docker"></i>
+                    </div>
+                    <h3>Inception Project</h3>
+                    <p>
+                        Multi-container Docker application with WordPress, MariaDB, Nginx, 
+                        Redis, and FTP server. Implemented secure containerization with 
+                        custom configurations and automated deployment.
+                    </p>
+                    <div class="project-tech">
+                        <span>Docker</span>
+                        <span>Nginx</span>
+                        <span>MariaDB</span>
+                        <span>WordPress</span>
+                        <span>Redis</span>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-icon">
+                        <i class="fas fa-terminal"></i>
+                    </div>
+                    <h3>Shell Implementation</h3>
+                    <p>
+                        Custom shell implementation in C with advanced features including 
+                        pipes, redirections, built-in commands, and environment variable 
+                        management.
+                    </p>
+                    <div class="project-tech">
+                        <span>C</span>
+                        <span>Unix</span>
+                        <span>System Calls</span>
+                        <span>Process Management</span>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-icon">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <h3>Web Server</h3>
+                    <p>
+                        High-performance HTTP web server built from scratch in C++. 
+                        Supports multiple HTTP methods, virtual hosts, and CGI execution 
+                        with efficient request handling.
+                    </p>
+                    <div class="project-tech">
+                        <span>C++</span>
+                        <span>HTTP</span>
+                        <span>CGI</span>
+                        <span>Socket Programming</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h4>Email</h4>
+                            <p>joao.rodrigues@student.42.fr</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fab fa-github"></i>
+                        <div>
+                            <h4>GitHub</h4>
+                            <p>github.com/42-joaorodrigues</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fab fa-linkedin"></i>
+                        <div>
+                            <h4>LinkedIn</h4>
+                            <p>linkedin.com/in/joaorodrigues42</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form>
+                        <div class="form-group">
+                            <input type="text" name="name" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" name="email" placeholder="Your Email" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 João Rodrigues. Built with ❤️ for the Inception project.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

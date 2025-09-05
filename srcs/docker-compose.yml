@@ -54,19 +54,41 @@ services:
       - inception
     restart: always
 
+  ftp:
+    build: ./requirements/bonus/ftp
+    container_name: ftp
+    ports:
+      - "21:21"
+      - "21000-21010:21000-21010"
+    volumes:
+      - wordpress_data:/var/www/html
+    networks:
+      - inception
+    restart: always
+
+  static-website:
+    build: ./requirements/bonus/static-website
+    container_name: static-website
+    ports:
+      - "8080:80"
+    networks:
+      - inception
+    restart: always
+  # ---
+  
 volumes:
   mariadb_data:
     driver: local
     driver_opts:
       type: none
       o: bind
-      device: /home/joao-alm/data/mariadb
+      device: /home/$USER/data/mariadb
   wordpress_data:
     driver: local
     driver_opts:
       type: none
       o: bind
-      device: /home/joao-alm/data/wordpress
+      device: /home/$USER/data/wordpress
 
 networks:
   inception:

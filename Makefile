@@ -3,7 +3,7 @@
 # ========================
 
 COMPOSE_FILE = srcs/docker-compose.yml
-DATA_DIR = /home/joao-alm/data
+DATA_DIR = /home/$(USER)/data
 
 # Default target
 all: up

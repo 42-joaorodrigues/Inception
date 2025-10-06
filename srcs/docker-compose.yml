@@ -74,6 +74,28 @@ services:
     networks:
       - inception
     restart: always
+
+  adminer:
+    build: ./requirements/bonus/adminer
+    container_name: adminer
+    ports:
+      - "8081:80"
+    depends_on:
+      - mariadb
+    networks:
+      - inception
+    restart: always
+
+  phpmyadmin:
+    build: ./requirements/bonus/phpmyadmin
+    container_name: phpmyadmin
+    ports:
+      - "9000:80"
+    depends_on:
+      - mariadb
+    networks:
+      - inception
+    restart: always
   # ---
   
 volumes:

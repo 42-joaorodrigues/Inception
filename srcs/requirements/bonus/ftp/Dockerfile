@@ -8,7 +8,9 @@ RUN apt-get update && apt-get install -y \
 RUN useradd -m -d /var/www/html -s /bin/bash ftpuser && \
     echo "ftpuser:ftppassword" | chpasswd && \
     mkdir -p /var/www/html && \
-    chown ftpuser:ftpuser /var/www/html && \
+    usermod -a -G www-data ftpuser && \
+    chown -R www-data:www-data /var/www/html && \
+    chmod -R 775 /var/www/html && \
     mkdir -p /var/run/vsftpd/empty
 
 COPY conf/vsftpd.conf /etc/vsftpd.conf

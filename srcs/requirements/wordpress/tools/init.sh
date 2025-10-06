@@ -23,15 +23,15 @@ if [ ! -f wp-config.php ]; then
 
     # Create wp-config.php
     wp config create \
-        --dbname="$SQL_DB_NAME" \
+        --dbname="wordpress" \
         --dbuser="$SQL_USER" \
         --dbpass="$SQL_PASSWORD" \
-        --dbhost="$SQL_HOST" \
+        --dbhost="mariadb:3306" \
         --allow-root
 
     # Add Redis configuration to wp-config.php
-    wp config set WP_REDIS_HOST "$WORDPRESS_REDIS_HOST" --allow-root
-    wp config set WP_REDIS_PORT "$WORDPRESS_REDIS_PORT" --allow-root
+    wp config set WP_REDIS_HOST "redis" --allow-root
+    wp config set WP_REDIS_PORT "6379" --allow-root
     wp config set WP_REDIS_TIMEOUT 1 --allow-root
     wp config set WP_REDIS_READ_TIMEOUT 1 --allow-root
     wp config set WP_REDIS_DATABASE 0 --allow-root

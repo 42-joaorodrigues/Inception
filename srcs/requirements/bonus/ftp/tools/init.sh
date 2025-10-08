@@ -1,10 +1,13 @@
 #!/bin/bash
 
+# Set FTP user password from environment variable
+echo "$FTP_USER:$FTP_PASSWORD" | chpasswd
+
 # Create the chroot list file
-echo "ftpuser" > /etc/vsftpd.chroot_list
+echo "$FTP_USER" > /etc/vsftpd.chroot_list
 
 # Create user list file
-echo "ftpuser" > /etc/vsftpd.userlist
+echo "$FTP_USER" > /etc/vsftpd.userlist
 
 # Set ownership of the WordPress directory  
 chown -R www-data:www-data /var/www/html

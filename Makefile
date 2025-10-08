@@ -12,6 +12,7 @@ all: up
 setup:
 	@mkdir -p $(DATA_DIR)/mariadb
 	@mkdir -p $(DATA_DIR)/wordpress
+	@mkdir -p $(DATA_DIR)/filebrowser
 	@echo "Data directories created at $(DATA_DIR)"
 
 # Build images and start containers
@@ -28,6 +29,8 @@ clean: down
 	docker volume prune -f
 	@sudo rm -rf $(DATA_DIR)
 
+fclean: clean
+
 # Rebuild without cache
 re: clean setup
 	cd srcs && docker compose build --no-cache
@@ -41,4 +44,4 @@ logs:
 status:
 	cd srcs && docker compose ps
 
-.PHONY: all setup up down clean re logs status
+.PHONY: all setup up down clean fclean re logs status

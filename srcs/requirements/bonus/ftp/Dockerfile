@@ -4,9 +4,9 @@ RUN apt-get update && apt-get install -y \
     vsftpd \
     && rm -rf /var/lib/apt/lists/*
 
-# Create FTP user and set up directories
+# Create FTP user and set up directories - password set in init.sh
+# Note: username is hardcoded as 'ftpuser' but can be changed via FTP_USER env var
 RUN useradd -m -d /var/www/html -s /bin/bash ftpuser && \
-    echo "ftpuser:ftppassword" | chpasswd && \
     mkdir -p /var/www/html && \
     usermod -a -G www-data ftpuser && \
     chown -R www-data:www-data /var/www/html && \
